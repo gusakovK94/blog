@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" build-on-make="true" name="blog:war exploded">
-    <output-path>$PROJECT_DIR$/target/blog-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/target/blog</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="blog/web/Web" />
       <element id="directory" name="WEB-INF">
