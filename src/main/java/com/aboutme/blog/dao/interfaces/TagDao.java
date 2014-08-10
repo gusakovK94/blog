@@ -1,4 +1,4 @@
-package com.aboutme.blog.dao;
+package com.aboutme.blog.dao.interfaces;
 
 import com.aboutme.blog.models.Post;
 import com.aboutme.blog.models.Tag;
