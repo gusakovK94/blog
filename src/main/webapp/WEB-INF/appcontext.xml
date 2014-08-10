@@ -3,7 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="adminService" class="com.aboutme.blog.service.AdminService"/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost/blog"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="8439987"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="10"/>
+    </bean>
 
-    <bean id="adminDAO" class="com.aboutme.blog.dao.AdminUserDAOImpl"/>
+    <bean id="adminDAO" class="com.aboutme.blog.dao.AdminUserDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
 </beans>

@@ -1,6 +1,5 @@
 package com.aboutme.blog.controllers;
 
-import com.aboutme.blog.json.Auth;
 import com.aboutme.blog.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,18 +26,17 @@ public class AdminPanelController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public Auth authRequest(@RequestParam("login") String login,
+	public String authRequest(@RequestParam("login") String login,
 								   	@RequestParam("password") String password) {
 
-		Auth auth = new Auth();
+		String isSuccess = null;
 		if (adminService.authenticate(login, password)) {
-			auth.errorName = "authFailed";
-			auth.errorMessage = "Неверный логин и/или пароль";
+			isSuccess = "true";
 		} else {
-			auth.redirectUrl = "1";
+			isSuccess = "false";
 		}
 
-		return auth;
+		return isSuccess;
 	}
 
 }

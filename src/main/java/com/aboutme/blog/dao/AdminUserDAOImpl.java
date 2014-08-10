@@ -29,7 +29,9 @@ public class AdminUserDAOImpl extends JdbcDaoSupport
 						admin.setProfileImageUrl(rs.getString("profileimageurl"));
 						return admin;
 					}
-				});
+				},
+					login, password);
+
 		return admin;
 	}
 
