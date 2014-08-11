@@ -1,5 +1,8 @@
 package com.aboutme.blog.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Admin {
 
 	private int id;
