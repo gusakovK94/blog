@@ -26,17 +26,10 @@ public class AdminPanelController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public String authRequest(@RequestParam("login") String login,
+	public boolean authRequest(@RequestParam("login") String login,
 								   	@RequestParam("password") String password) {
 
-		String isSuccess = null;
-		if (adminService.authenticate(login, password)) {
-			isSuccess = "true";
-		} else {
-			isSuccess = "false";
-		}
-
-		return isSuccess;
+		return adminService.authenticate(login, password);
 	}
 
 }
