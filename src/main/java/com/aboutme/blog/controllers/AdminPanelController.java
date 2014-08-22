@@ -3,9 +3,11 @@ package com.aboutme.blog.controllers;
 import com.aboutme.blog.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -17,11 +19,6 @@ public class AdminPanelController {
 	@Autowired
 	public void setAdminService(AdminService adminService) {
 		this.adminService = adminService;
-	}
-
-	@RequestMapping(method = RequestMethod.GET)
-	public String showFormPage() {
-		return "admin/auth";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -36,12 +33,13 @@ public class AdminPanelController {
 		return false;
 	}
 
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String authSuccess(HttpServletRequest request) {
-		if (request.getSession(true).getAttribute("admin") == null) {
-			return "redirect:/admin";
+	@RequestMapping(method = RequestMethod.GET)
+	public String showAdminIndexOrFormPage(HttpSession httpSession) {
+		if (httpSession.getAttribute("admin") == null) {
+			return "admin/auth";
+		} else {
+			return "admin/index";
 		}
-		return "admin/index";
 	}
 
 }
