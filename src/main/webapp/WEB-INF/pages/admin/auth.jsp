@@ -1,33 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin</title>
-    <link href="/resources/css/style.css" rel="stylesheet">
-    <script src="/resources/js/jquery-2.1.1.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".login").submit(function(e) {
-                e.preventDefault();
-
-                var m_method = $(this).attr("method");
-                var m_action = $(this).attr("action");
-                var m_data = $(this).serialize();
-
-                $.ajax({
-                    type: m_method,
-                    url: m_action,
-                    data: m_data,
-                    success: function(result) {
-                        if (result === true) {
-                            window.location.href = "/admin/main";
-                        } else {
-                            alert(result);
-                        }
-                    }
-                })
-            })
-        })
-    </script>
+    <meta charset="utf-8">
+    <title>Авторизация</title>
+    <link href="/resources/css/auth.min.css" rel="stylesheet">
+    <script src="/resources/js/jquery.min.js"></script>
+    <script src="/resources/js/auth.js"></script>
 </head>
 <body>
     <form class="login" method="post" action="/admin">
@@ -36,6 +14,10 @@
         <label for="password">Пароль</label>
         <input type="password" id="password" name="password"/>
         <input id="loginBtn" type="submit" value="Войти"/>
+        <br>
+        <div class="alert alert-danger" role="alert">
+            Неверный логин и/или пароль
+        </div>
     </form>
 
 </body>
