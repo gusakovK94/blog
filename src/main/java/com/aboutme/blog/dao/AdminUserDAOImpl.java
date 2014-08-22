@@ -7,14 +7,15 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class AdminUserDAOImpl extends JdbcDaoSupport
 								implements AdminUserDAO {
 
 	@Override
-	public Admin find(String login, String password) {
+	public List<Admin> find(String login, String password) {
 
-		Admin admin = getJdbcTemplate().queryForObject(
+		List<Admin> admin = getJdbcTemplate().query(
 				"SELECT * FROM admins WHERE login = ? AND password = ?",
 				new RowMapper<Admin>() {
 					public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
