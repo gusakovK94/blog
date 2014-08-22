@@ -18,7 +18,11 @@
                     url: m_action,
                     data: m_data,
                     success: function(result) {
-                        alert(result);
+                        if (result === true) {
+                            window.location.href = "/admin/main";
+                        } else {
+                            alert(result);
+                        }
                     }
                 })
             })
