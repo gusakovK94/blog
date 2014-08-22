@@ -8,15 +8,15 @@ module.exports = function (grunt) {
                     optimization: 0
                 },
                 files: {
-                    "static/css/index.min.css": "src/less/index.less",
-                    "static/css/auth.min.css": "src/less/auth.less",
-                    "static/css/posts.min.css": "src/less/posts.less"
+                    "src/main/webapp/resources/css/index.min.css": "src/main/webapp/src/less/index.less",
+                    "src/main/webapp/resources/css/auth.min.css": "src/main/webapp/src/less/auth.less",
+                    "src/main/webapp/resources/css/posts.min.css": "src/main/webapp/src/less/posts.less"
                 }
             }
         },
         watch: {
             styles: {
-                files: ['src/less/**/*.less'],
+                files: ['src/main/webapp/src/less/**/*.less'],
                 tasks: ['less:default'],
                 options: {
                     nospawn: true
