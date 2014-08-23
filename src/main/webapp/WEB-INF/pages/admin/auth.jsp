@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Авторизация</title>
     <link href="/resources/css/auth.min.css" rel="stylesheet">
-    <script src="/resources/js/jquery.min.js"></script>
+    <script src="/resources/frontend-libs/jquery/dist/jquery.min.js"></script>
     <script src="/resources/js/auth.js"></script>
 </head>
 <body>
