@@ -4,59 +4,59 @@ import java.util.Date;
 
 public class Post {
 
-	private int id;
+	private String topic;
+	private String author;
+	/**/private String tag;
 	private String image;
-	private int likes;
-	private Date date;
-	private int viewings;
 	private String content;
+	private Date date;
 
-	public void setId(int id) {
-		this.id = id;
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	public void setImage(String image) {
 		this.image = image;
 	}
 
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
-	public void setViewings(int viewings) {
-		this.viewings = viewings;
+	public String getTopic() {
+		return topic;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public String getAuthor() {
+		return author;
 	}
 
-	public int getId() {
-		return id;
+	public String getTag() {
+		return tag;
 	}
 
 	public String getImage() {
 		return image;
 	}
 
-	public int getLikes() {
-		return likes;
+	public String getContent() {
+		return content;
 	}
 
 	public Date getDate() {
 		return date;
-	}
-
-	public int getViewings() {
-		return viewings;
-	}
-
-	public String getContent() {
-		return content;
 	}
 
 }
