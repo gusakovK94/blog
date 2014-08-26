@@ -16,5 +16,8 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="postsDAO" class="com.aboutme.blog.dao.PostsDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
 </beans>
