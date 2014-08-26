@@ -27,7 +27,7 @@ $(document).ready(function() {
         var tags = childrenDiv.find("li").find("input[type=checkbox]:checked");
         for (var i = 0;i < tags.length;i++) {
             var tagName = tags.get(i).nextSibling.innerHTML;
-            parentUl.parent().parent().find(".tags").append("<a class='tag'><span>"+tagName+"</span></a>");
+            parentUl.parent().parent().find(".tags").append("<a class='tag'><span>"+tagName+"</span><input type='hidden' name='tag' value="+tagName+"></a>");
             tags.get(i).parentNode.parentNode.removeChild(tags.get(i).parentNode);
         }
     });
@@ -43,14 +43,12 @@ $(document).ready(function() {
     $(".tags").on("click", "a", function() {
         if ($(".delete").hasClass('active')) {
             var mainDiv = $(this).parent().parent().find(".list-tags");
-            //var mainDiv = $(this).parents().find(".col-lg-8").find(".list-tags");
-            mainDiv.append("<li><input type='checkbox'><a class='tag'>"+$(this).get(0).innerHTML+"</a></li>");
-            $(this).hide("slow");
+            mainDiv.append("<li><input type='checkbox'><span class='tag'>"+$(this).text()+"</span></li>");
+            $(this).remove();
         }
     });
 
     $(".clear").click(function() {
-        //tinyMCE.triggerSave(false, true);
         var tinyMCEId = "post-text";
         tinyMCE.get(tinyMCEId).setContent('');
     });
@@ -77,40 +75,6 @@ $(document).ready(function() {
 
     $(".remove").click(function() {
         $(this).parent().parent().parent().hide("slow");
-    })
+    });
 
-    /*$(".tag").click(function() {
-     if ($(".delete").hasClass('active')) {
-     alert("A");
-     }
-     });*/
-
-    /*$(".edit").click(function() {
-     $(this).parent().parent().hide("slow");
-     var mainBlock = $(this).parents().find('.well');
-     mainBlock.find(".post-edit").show();
-     });
-
-     $('li').click(function(event){
-     event.stopPropagation();
-     });
-
-     $(".save").click(function() {
-     $(".dropdown-menu").dropdown("toggle");
-
-     });
-
-     $("#delete").click(function() {
-     if ($(this).hasClass('active')) {
-     $(this).removeClass('active');
-     } else {
-     $(this).addClass('active');
-     }
-     });
-
-     $(".tags").click(function() {
-     if ($("#delete").hasClass('active')) {
-     $(this).hide("slow");
-     }
-     });*/
 });
